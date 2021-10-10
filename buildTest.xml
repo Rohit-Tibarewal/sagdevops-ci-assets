@@ -11,6 +11,7 @@
 <project name="test" default="startTest" basedir=".">
 
 	<property name="testSuitePackagesPath" value="${isTestDir}"/>
+	<taskdef classpath="${antContribJarPath}" resource="net/sf/antcontrib/antlib.xml"/>
 
 	<path id="junitClasspath">
 		<fileset dir="${SAGHome}/common/lib/ext" includes="enttoolkit.jar" />
@@ -22,6 +23,8 @@
 		<fileset dir="./lib" includes="xmlunit*.jar" />
 		<fileset dir="./lib" includes="serviceInterceptor.jar" />
 		<fileset dir="./lib" includes="serviceMockClient.jar" />
+		<fileset dir="${testISDir}/common/lib/testsuite" includes="*.jar"/>
+        <fileset dir="${testISDir}/common/lib" includes="**/*.jar"/>
 	</path>
 	
 	<target name="startTest" depends="jenkinsCheck">		
